@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1820415666626171, guid: b6d9afdc625e61443824c2ac880c496f, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2767834069211204291, guid: b6d9afdc625e61443824c2ac880c496f, type: 3}
       propertyPath: m_Name
       value: Player Character
@@ -178,6 +182,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8279107694767364167, guid: b6d9afdc625e61443824c2ac880c496f, type: 3}
+      propertyPath: CrossHairComponent
+      value: 
+      objectReference: {fileID: 1627382339}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6d9afdc625e61443824c2ac880c496f, type: 3}
 --- !u!850595691 &14908954
@@ -313,7 +321,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16734
+  m_Name: pb_Mesh18878
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5359,6 +5367,30 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &1082028227 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1082028227, guid: b6d9afdc625e61443824c2ac880c496f, type: 3}
+  m_PrefabInstance: {fileID: 3776523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1082791086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2767834069211204291, guid: b6d9afdc625e61443824c2ac880c496f, type: 3}
+  m_PrefabInstance: {fileID: 3776523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1082791087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082791086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9276c11ccd5c5cd4d8f9a4c5132d6a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponToSpawn: {fileID: 7281790473103263774, guid: c7518349b43b3fd49bc9d13ba2b945e0, type: 3}
+  weaponSocketLocation: {fileID: 1082028227}
 --- !u!1 &1212787800
 GameObject:
   m_ObjectHideFlags: 0
@@ -5549,7 +5581,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16746
+  m_Name: pb_Mesh18890
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5795,7 +5827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65df631576327224eada1d20de85a3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: {x: 1, y: 1}
+  mouseSensitivity: {x: 2, y: 2}
   inverted: 0
   crosshairHorizontalPercentage: 0.3
   crosshairVerticalPercentage: 0.3

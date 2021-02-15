@@ -1,50 +1,51 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Events;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace Manager
 {
-    public static GameManager Instance { get; private set; }
+    public class GameManager : MonoBehaviour
+    {
+        public static GameManager Instance { get; private set; }
     
-    public bool CursorActive { get; private set; } = true;
+        public bool CursorActive { get; private set; } = true;
 
-    private void Awake()
-    {
-        if (Instance!= null && Instance != this)
+        private void Awake()
         {
-            Destroy(this);
+            if (Instance!= null && Instance != this)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(this);
+            }
         }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(this);
-        }
-    }
     
-    private void EnableCursor(bool enable)
-    {
-        if (enable)
+        private void EnableCursor(bool enable)
         {
-            CursorActive = true;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            if (enable)
+            {
+                CursorActive = true;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                CursorActive = false;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
-        else
-        {
-            CursorActive = false;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-    }
     
-    private void OnEnable()
-    {
-        AppEvents.MouseCursorEnabled += EnableCursor;
-    }
+        private void OnEnable()
+        {
+            AppEvents.MouseCursorEnabled += EnableCursor;
+        }
 
-    private void OnDisable()
-    {
-        AppEvents.MouseCursorEnabled -= EnableCursor;
+        private void OnDisable()
+        {
+            AppEvents.MouseCursorEnabled -= EnableCursor;
+        }
     }
 }

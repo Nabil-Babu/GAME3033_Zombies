@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class AppEvents
+namespace Events
 {
-    public delegate void MouseCursorEnable(bool enabled);
-
-    public static event MouseCursorEnable MouseCursorEnabled;
-
-    public static void Invoke_OnMouseCursorEnable(bool enabled)
+    public class AppEvents
     {
-        MouseCursorEnabled?.Invoke(enabled);
+        public delegate void MouseCursorEnable(bool enabled);
+
+        public static event MouseCursorEnable MouseCursorEnabled;
+
+        public static void Invoke_OnMouseCursorEnable(bool enabled)
+        {
+            MouseCursorEnabled?.Invoke(enabled);
+        }
     }
 }
