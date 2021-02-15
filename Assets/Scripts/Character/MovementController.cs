@@ -33,11 +33,6 @@ public class MovementController : MonoBehaviour
         _playerTransform = GetComponent<Transform>();
     }
 
-    void Start()
-    {
-        
-    }
-
     private void Update()
     {
         
@@ -56,7 +51,7 @@ public class MovementController : MonoBehaviour
 
     public void OnMovement(InputValue value)
     {
-        Debug.Log(value.Get<Vector2>());
+        //Debug.Log(value.Get<Vector2>());
         _inputVector = value.Get<Vector2>();
         
         _animator.SetFloat(_movementXHash, _inputVector.x);
@@ -65,7 +60,7 @@ public class MovementController : MonoBehaviour
     
     public void OnRun(InputValue value)
     {
-        Debug.Log(value.isPressed);
+        //Debug.Log(value.isPressed);
         _playerController.isRunning = value.isPressed;
         _animator.SetBool(_isRunningHash, value.isPressed);
     }
