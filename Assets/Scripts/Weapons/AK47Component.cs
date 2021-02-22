@@ -7,7 +7,7 @@ namespace Weapons
     {
         private Vector3 HitLocation;
         
-        protected override void FireWeapon()
+        protected new void FireWeapon()
         {
             Debug.Log($"{WeaponStats.BulletsInClip} || {WeaponStats.BulletsAvailable}" );
             
@@ -30,7 +30,7 @@ namespace Weapons
             {
                 if (!WeaponHolder) return;
 
-                //WeaponHolder.StartReloading();
+                WeaponHolder.StartReloading();
             }
 
           

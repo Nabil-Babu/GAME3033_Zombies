@@ -70,91 +70,79 @@ namespace Character
             _playerAnimator.SetIKPosition(AvatarIKGoal.LeftHand, _gripIKLocation.position);
         }
         
-        // private void OnFire(InputAction.CallbackContext pressed)
-        // {
-        //     _firingPressed = pressed.ReadValue<float>() == 1f ? true : false;
-        //     
-        //     if (_firingPressed)
-        //         StartFiring();
-        //     else
-        //         StopFiring();
-        //     
-        // }
+        private void OnFire(InputValue button)
+        {
+            
+            Debug.Log("Firing");
+            _firingPressed = button.isPressed; 
+            
+            if (_firingPressed)
+                StartFiring();
+            else
+                StopFiring();
+            
+        }
 
-        // private void StartFiring()
-        // {
-        //     //TODO: Weapon Seems to be reloading after no bullets left
-        //     if (EquippedWeapon.WeaponInformation.BulletsAvailable <= 0 &&
-        //         EquippedWeapon.WeaponInformation.BulletsInClip <= 0) return;
-        //
-        //     _playerController.isFiring = true;
-        //     _playerAnimator.SetBool(IsFiringHash, true);
-        //     EquippedWeapon.StartFiringWeapon();
-        // }
-        //
-        // private void StopFiring()
-        // {
-        //     _playerController.isFiring = false;
-        //     _playerAnimator.SetBool(IsFiringHash, false);
-        //     EquippedWeapon.StopFiringWeapon();
-        // }
+        private void StartFiring()
+        {
+            //TODO: Weapon Seems to be reloading after no bullets left
+            if (EquippedWeapon.WeaponInformation.BulletsAvailable <= 0 &&
+                EquippedWeapon.WeaponInformation.BulletsInClip <= 0) return;
+        
+            _playerController.isFiring = true;
+            _playerAnimator.SetBool(IsFiringHash, true);
+            EquippedWeapon.StartFiringWeapon();
+        }
+        
+        private void StopFiring()
+        {
+            _playerController.isFiring = false;
+            _playerAnimator.SetBool(IsFiringHash, false);
+            EquippedWeapon.StopFiringWeapon();
+        }
 
         
-        // private void OnReload(InputValue button)
-        // {
-        //     StartReloading();
-        // }
+        private void OnReload(InputValue button)
+        {
+            StartReloading();
+        }
 
-        // public void StartReloading()
-        // {
-        //     if (EquippedWeapon.WeaponInformation.BulletsAvailable <= 0 && _playerController.isFiring)
-        //     {
-        //         StopFiring();
-        //         return;
-        //     }
-        //
-        //     _playerController.isReloading = true;
-        //     _playerAnimator.SetBool(IsReloadingHash, true);
-        //     EquippedWeapon.StartReloading();
-        //     
-        //     InvokeRepeating(nameof(StopReloading), 0, .1f);
-        // }
+        public void StartReloading()
+        {
+            if (EquippedWeapon.WeaponInformation.BulletsAvailable <= 0 && _playerController.isFiring)
+            {
+                StopFiring();
+                return;
+            }
         
-        // private void StopReloading()
-        // {
-        //     if (_playerAnimator.GetBool(IsReloadingHash)) return;
-        //     
-        //     _playerController.isReloading = false;
-        //     EquippedWeapon.StopReloading();
-        //     CancelInvoke(nameof(StopReloading));
-        //     
-        //     if (!_wasFiring || !_firingPressed) return;
-        //     
-        //     StartFiring();
-        //     _wasFiring = false;
-        // }
+            _playerController.isReloading = true;
+            _playerAnimator.SetBool(IsReloadingHash, true);
+            EquippedWeapon.StartReloading();
+            
+            InvokeRepeating(nameof(StopReloading), 0, .1f);
+        }
         
-    private void OnLook(InputValue obj)
-    {
-        Vector3 independentMousePosition = ViewCamera.ScreenToViewportPoint(_playerCrosshair.CurrentAimPosition);
+        private void StopReloading()
+        {
+            if (_playerAnimator.GetBool(IsReloadingHash)) return;
+            
+            _playerController.isReloading = false;
+            EquippedWeapon.StopReloading();
+            CancelInvoke(nameof(StopReloading));
+            
+            if (!_wasFiring || !_firingPressed) return;
+            
+            StartFiring();
+            _wasFiring = false;
+        }
         
-        _playerAnimator.SetFloat(AimHorizontalHash, independentMousePosition.x);
-        _playerAnimator.SetFloat(AimVerticalHash, independentMousePosition.y);
-    }
-    //     
-    //     private new void OnEnable()
-    //     {
-    //         base.OnEnable();
-    //         GameInput.ThirdPerson.Look.performed += OnLook;
-    //         //GameInput.ThirdPerson.Fire.performed += OnFire;
-    //         
-    //     }
-    //     
-    //     private new void OnDisable()
-    //     {
-    //         base.OnDisable();
-    //         GameInput.ThirdPerson.Look.performed -= OnLook;
-    //         //GameInput.ThirdPerson.Fire.performed -= OnFire;
-    //     }
+        private void OnLook(InputValue obj)
+        {
+            Vector3 independentMousePosition = ViewCamera.ScreenToViewportPoint(_playerCrosshair.CurrentAimPosition);
+            
+            _playerAnimator.SetFloat(AimHorizontalHash, independentMousePosition.x);
+            _playerAnimator.SetFloat(AimVerticalHash, independentMousePosition.y);
+        }
+    
      }
 }

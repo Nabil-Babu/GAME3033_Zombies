@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1699335270, guid: b6d9afdc625e61443824c2ac880c496f, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1820415666626171, guid: b6d9afdc625e61443824c2ac880c496f, type: 3}
       propertyPath: m_NotificationBehavior
       value: 0
@@ -5391,6 +5395,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponToSpawn: {fileID: 7281790473103263774, guid: c7518349b43b3fd49bc9d13ba2b945e0, type: 3}
   weaponSocketLocation: {fileID: 1082028227}
+--- !u!114 &1082791095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082791086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec0f89b905b4124bab8ee62c07b77aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followTarget: {fileID: 1457591243}
+  rotationSpeed: 0.1
+  horizontalDamping: 20
 --- !u!1 &1212787800
 GameObject:
   m_ObjectHideFlags: 0
@@ -5581,7 +5600,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18890
+  m_Name: pb_Mesh16794
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5739,6 +5758,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1457591243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1699335270, guid: b6d9afdc625e61443824c2ac880c496f, type: 3}
+  m_PrefabInstance: {fileID: 3776523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1627382335
 GameObject:
   m_ObjectHideFlags: 0
