@@ -37,7 +37,7 @@ namespace Weapons
   
         public WeaponStats WeaponInformation => WeaponStats;
   
-        [SerializeField] protected WeaponStats WeaponStats;
+        public WeaponStats WeaponStats;
 
         protected Camera MainCamera;
         protected WeaponHolder WeaponHolder;
